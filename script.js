@@ -20,8 +20,13 @@
 // 12: 23
 
 let destination= document.getElementById('div1')
+var linebreak = document.createElement("br")
+
+
 destination.style.display = "flex"
+destination.style.alignItems = "flex-end"
 // destination.style.display = "flex
+// destination.className="flexbox"
 
 // DO I EVEN NEED THIS?
 //let rollOfDice = Array(6).fill(0);
@@ -41,16 +46,27 @@ for (var i = 1; i <= 1000; i++){
   count[rollOfDice] = count[rollOfDice] + 1;
 }
  
-console.log(count);
-
-// function MakeTextForDiceRolls (newText){
-//   let newElement = document.createElement('div')
-//   destination.appendChild(newElement)
-//   newElement.style.backgroundColor="pink"
-//   newElement.style.height = height+"px"
-//   newElement.style.width= "10px"
-//   newElement.style.margin= "10px"
+//tried using .innerHTML but only shows the 12: dice roll
+// for (var i =2; i <=12; i++ ){
+// document.getElementById('div0').innerHTML = ("<strong>"+ i +"</strong> :" 
+// + count[i]+ "<br />");
 // }
+
+for (var i =2; i <=12; i++ ){
+  document.write("<strong>"+ i +"</strong> :" 
+  + count[i]+ "<br />");
+  }
+  
+function MakeTextForDiceRolls (content){
+  let newElement = document.createElement('div')
+  newElement.style.backgroundColor="pink"
+  var newText = document.createTextNode(content);
+  destination.appendChild(newText);
+
+  newElement.style.height = height+"px"
+  newElement.style.width= "10px"
+  newElement.style.margin= "4px"
+}
 // for (let i = 2; i < 13; i++){
   
 //   height= (count[i])
@@ -62,48 +78,14 @@ function MakeBarForDiceRolls (height){
   destination.appendChild(newElement)
   newElement.style.backgroundColor="blue"
   newElement.style.height = height+"px"
-  newElement.style.width= "10px"
-  newElement.style.margin= "10px"
+  newElement.style.width= "13px"
+  newElement.style.margin= "5.5px"
 }
+
+// console.log( MakeTextForDiceRolls(content))
 
 for (let i = 2; i < 13; i++){
   
   height= (count[i])
   MakeBarForDiceRolls(height)
 }
-
-
-// function createNewDynamicElement(width){
-//   // Create a div, with class "bar", and set the width to 100px.
-//   let newElement = document.createElement('div');
-//   newElement.className="graybar";
-//   // Place a text label inside the new div.
-//   destination.appendChild(newElement);
-  
-//   newElement.style.height = "20px";
-//   newElement.style.width = width + "px";
-//   }
-
-// width = 100
-
-// for (let i=0; i < sampleArray.length; i++){
-//   width=(sampleArray[i])
-//   createNewDynamicElement(width)
-// }
-
-
-// THIS FUNCTION PRODUCES THE RESULT WHEN THE ON-SCREEN BUTTON IS PRESSED
-
-//   function playGame () {
-  
-//  	 //document.open ();
-//  	 document.write ('1 was rolled' + totalArray[0] ' times.');
-//  	 document.write ('2 was rolled' + totalArray[1] ' times.');
-//  	 document.write ('3 was rolled' + totalArray[2] ' times.');
-//  	 document.write ('4 was rolled' + totalArray[3] ' times.');
-//  	 document.write ('5 was rolled' + totalArray[4] ' times.');
-//  	 document.write ('6 was rolled' + totalArray[5] ' times.');
-//  	 document.close ();
-//   }
-
-// playGame(2);
